@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 5173 -State Listen | Select-Object OwningProcess\")",
+      "Bash(powershell -Command \"Stop-Process -Id 1488 -Force -ErrorAction SilentlyContinue; Start-Sleep 1; Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue\")",
+      "WebSearch",
+      "WebFetch(domain:platform.minimax.io)",
+      "WebFetch(domain:aiengineerguide.com)",
+      "Bash(curl -s -N -X POST http://localhost:5173/api/chat -H \"content-type: application/json\" -d '{\"messages\":[{\"role\":\"user\",\"content\":\"say hi in 5 words\"}]}' --max-time 25)",
+      "Bash(curl -s -N -X POST http://localhost:5173/api/chat -H \"content-type: application/json\" -d '{\"messages\":[{\"role\":\"user\",\"content\":\"what model are you running on?\"}]}' --max-time 25)",
+      "Bash(curl -s -N -X POST http://localhost:5173/api/chat -H \"content-type: application/json\" -d '{\"messages\":[{\"role\":\"user\",\"content\":\"whats your name?\"}]}' --max-time 25)"
+    ]
+  }
+}
