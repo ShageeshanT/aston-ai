@@ -25,8 +25,8 @@ export function TopBar() {
 
       <div className="mx-1.5 h-3.5 w-px bg-[color:var(--color-border-strong)]" />
 
-      <div className="flex min-w-0 items-center gap-2">
-        <span className="truncate text-[14px] font-medium tracking-[-0.005em] text-[color:var(--color-text)]">
+      <div className="flex min-w-0 flex-1 items-center gap-2 sm:flex-none">
+        <span className="block min-w-0 truncate text-[14px] font-medium tracking-[-0.005em] text-[color:var(--color-text)]">
           {active?.title || "New chat"}
         </span>
       </div>

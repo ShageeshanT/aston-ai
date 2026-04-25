@@ -42,12 +42,12 @@ export function EmptyState({ onPick }: { onPick: (prompt: string) => void }) {
   const ease = [0.22, 1, 0.36, 1] as const;
 
   return (
-    <div className="flex h-full flex-col items-center justify-center px-6 pb-40 pt-16">
+    <div className="flex h-full flex-col items-center justify-center px-5 pb-32 pt-10 sm:px-6 sm:pb-40 sm:pt-16">
       <motion.h1
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.05, ease }}
-        className="font-serif text-center text-[64px] font-normal leading-[1.02] tracking-[-0.02em] text-[color:var(--color-text)] text-balance md:text-[80px]"
+        className="font-serif text-center text-[44px] font-normal leading-[1.02] tracking-[-0.02em] text-[color:var(--color-text)] text-balance sm:text-[64px] md:text-[80px]"
       >
         <span className="italic text-[color:var(--color-accent)]">
           {greeting().split(" ")[0]}
@@ -60,7 +60,7 @@ export function EmptyState({ onPick }: { onPick: (prompt: string) => void }) {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.18, ease }}
-        className="mt-5 text-center text-[17px] text-[color:var(--color-muted)] text-balance"
+        className="mt-4 text-center text-[15px] text-[color:var(--color-muted)] text-balance sm:mt-5 sm:text-[17px]"
       >
         What can I help you think through today?
       </motion.p>
@@ -72,7 +72,7 @@ export function EmptyState({ onPick }: { onPick: (prompt: string) => void }) {
           hidden: {},
           show: { transition: { staggerChildren: 0.06, delayChildren: 0.3 } },
         }}
-        className="mt-14 grid w-full max-w-[660px] grid-cols-2 gap-2.5"
+        className="mt-10 grid w-full max-w-[660px] grid-cols-1 gap-2.5 sm:mt-14 sm:grid-cols-2"
       >
         {SUGGESTIONS.map((s) => (
           <motion.button

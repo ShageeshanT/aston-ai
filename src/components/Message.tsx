@@ -35,7 +35,7 @@ export function Message({
         transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
         className="group flex w-full justify-end py-3"
       >
-        <div className="max-w-[78%]">
+        <div className="max-w-[88%] sm:max-w-[78%]">
           <div
             className="rounded-[18px] rounded-tr-[6px] px-4 py-2.5 text-[15.5px] leading-[1.55] text-[color:var(--color-text)]"
             style={{

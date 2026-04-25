@@ -71,7 +71,12 @@ export function Composer({
         }}
       />
 
-      <div className="pointer-events-auto mx-auto w-full max-w-[740px] px-5 pb-5">
+      <div
+        className="pointer-events-auto mx-auto w-full max-w-[740px] px-3 pb-3 sm:px-5 sm:pb-5"
+        style={{
+          paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
+        }}
+      >
         <motion.div
           animate={{
             boxShadow: focused

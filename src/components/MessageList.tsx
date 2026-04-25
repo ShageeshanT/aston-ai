@@ -55,7 +55,7 @@ export function MessageList({ messages, onRegenerate, isStreaming }: Props) {
   return (
     <div className="relative flex min-h-0 flex-1 flex-col">
       <div ref={scrollRef} className="flex-1 overflow-y-auto">
-        <div className="mx-auto w-full max-w-[740px] px-6 pb-10 pt-2">
+        <div className="mx-auto w-full max-w-[740px] px-4 pb-10 pt-2 sm:px-6">
           {messages.map((m) => (
             <Message
               key={m.id}
