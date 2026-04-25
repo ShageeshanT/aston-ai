@@ -7,10 +7,16 @@ import { Message } from "./Message";
 interface Props {
   messages: MessageT[];
   onRegenerate?: () => void;
+  onEditUserMessage?: (msgId: string, newContent: string) => void;
   isStreaming?: boolean;
 }
 
-export function MessageList({ messages, onRegenerate, isStreaming }: Props) {
+export function MessageList({
+  messages,
+  onRegenerate,
+  onEditUserMessage,
+  isStreaming,
+}: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const [atBottom, setAtBottom] = useState(true);
@@ -62,7 +68,9 @@ export function MessageList({ messages, onRegenerate, isStreaming }: Props) {
               msg={m}
               isLastAssistant={m.id === lastAssistantId}
               canRegenerate={!isStreaming}
+              canEdit={!isStreaming}
               onRegenerate={onRegenerate}
+              onEdit={onEditUserMessage}
             />
           ))}
           <div ref={bottomRef} />

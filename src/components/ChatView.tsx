@@ -99,6 +99,29 @@ export function ChatView() {
 
   const handleStop = () => abortRef.current?.abort();
 
+  // Edit a past user message: rewrite content, drop everything chronologically
+  // after it, then re-run the assistant turn from the new history.
+  const handleEditUserMessage = async (msgId: string, newContent: string) => {
+    const conv = active;
+    if (!conv || isStreaming) return;
+    if (!newContent.trim()) return;
+
+    const target = conv.messages.find((m) => m.id === msgId);
+    if (!target || target.role !== "user") return;
+
+    // Update content in place, then truncate after this message.
+    updateMessage(conv.id, msgId, { content: newContent });
+    truncateAfter(conv.id, msgId);
+
+    const turns: ChatTurn[] = useStore
+      .getState()
+      .conversations.find((c) => c.id === conv.id)!
+      .messages.filter((m) => m.role === "user" || m.role === "assistant")
+      .map((m) => ({ role: m.role, content: m.content }));
+
+    await runAssistantTurn(conv.id, turns);
+  };
+
   // Regenerate: drop the most recent assistant message and re-run against
   // the turns that led up to it.
   const handleRegenerate = async () => {
@@ -147,6 +170,7 @@ export function ChatView() {
         <MessageList
           messages={messages}
           onRegenerate={handleRegenerate}
+          onEditUserMessage={handleEditUserMessage}
           isStreaming={isStreaming}
         />
       )}
