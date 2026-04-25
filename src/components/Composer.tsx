@@ -8,7 +8,6 @@ import {
 import { motion } from "framer-motion";
 import { ArrowUp, Image as ImageIcon, Mic, Paperclip, Square } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { KeyHint } from "./ui/KeyHint";
 
 interface Props {
   onSend: (text: string) => void;
@@ -118,14 +117,6 @@ export function Composer({
             </div>
 
             <div className="flex items-center gap-2.5">
-              <div className="hidden items-center gap-1.5 pr-1 text-[11.5px] text-[color:var(--color-faint)] md:flex">
-                <KeyHint>↵</KeyHint>
-                <span>send</span>
-                <span className="mx-0.5 opacity-50">·</span>
-                <KeyHint>⇧↵</KeyHint>
-                <span>newline</span>
-              </div>
-
               {isStreaming ? (
                 <button
                   onClick={onStop}

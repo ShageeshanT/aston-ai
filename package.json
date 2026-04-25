@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.33.1",
-    "@fontsource-variable/geist": "^5.1.1",
     "@fontsource-variable/geist-mono": "^5.1.1",
+    "@fontsource-variable/inter-tight": "^5.1.1",
     "@fontsource/instrument-serif": "^5.1.1",
     "clsx": "^2.1.1",
     "dexie": "^4.0.10",

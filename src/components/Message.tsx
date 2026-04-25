@@ -95,7 +95,12 @@ export function Message({
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       className="group flex w-full gap-3.5 py-4"
     >
-      <div className="relative mt-0.5 shrink-0">
+      <div
+        className={cn(
+          "relative mt-0.5 shrink-0",
+          msg.streaming && "streaming-avatar",
+        )}
+      >
         <Logo size={22} />
       </div>
 
@@ -254,21 +259,10 @@ function MsgActionButton({
 
 function ThinkingDots() {
   return (
-    <div className="flex items-center gap-1 py-1.5">
-      {[0, 1, 2].map((i) => (
-        <motion.span
-          key={i}
-          className="h-[5px] w-[5px] rounded-full"
-          style={{ background: "var(--color-accent)" }}
-          animate={{ opacity: [0.25, 1, 0.25], scale: [0.85, 1.1, 0.85] }}
-          transition={{
-            duration: 1.2,
-            repeat: Infinity,
-            delay: i * 0.18,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+    <div className="flex items-center py-0.5">
+      <span className="shimmer-text text-[15.5px] font-medium tracking-[-0.005em]">
+        Thinking
+      </span>
     </div>
   );
 }

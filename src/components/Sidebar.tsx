@@ -91,7 +91,7 @@ export function Sidebar() {
       </AnimatePresence>
 
       <AnimatePresence initial={false}>
-        {(open || !isMobile) && (
+        {(!isMobile || open) && (
           <motion.aside
             key={isMobile ? "mobile" : "desktop"}
             initial={
@@ -102,7 +102,7 @@ export function Sidebar() {
             animate={
               isMobile
                 ? { x: open ? 0 : -300, opacity: 1 }
-                : { width: 272, opacity: 1 }
+                : { width: open ? 272 : 0, opacity: open ? 1 : 0 }
             }
             exit={
               isMobile

@@ -42,12 +42,13 @@ export function EmptyState({ onPick }: { onPick: (prompt: string) => void }) {
   const ease = [0.22, 1, 0.36, 1] as const;
 
   return (
-    <div className="flex h-full flex-col items-center justify-center px-5 pb-32 pt-10 sm:px-6 sm:pb-40 sm:pt-16">
+    <div className="flex min-h-full flex-col px-5 sm:px-6">
+      <div className="my-auto flex flex-col items-center py-10 sm:py-16">
       <motion.h1
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.05, ease }}
-        className="font-serif text-center text-[44px] font-normal leading-[1.02] tracking-[-0.02em] text-[color:var(--color-text)] text-balance sm:text-[64px] md:text-[80px]"
+        className="font-serif text-center text-[44px] font-normal leading-[1.15] tracking-[-0.02em] text-[color:var(--color-text)] text-balance sm:text-[60px] md:text-[72px]"
       >
         <span className="italic text-[color:var(--color-accent)]">
           {greeting().split(" ")[0]}
@@ -98,6 +99,7 @@ export function EmptyState({ onPick }: { onPick: (prompt: string) => void }) {
           </motion.button>
         ))}
       </motion.div>
+      </div>
     </div>
   );
 }
